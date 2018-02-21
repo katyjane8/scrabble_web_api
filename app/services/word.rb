@@ -2,8 +2,6 @@ class Word
 
   def self.validate_word(word)
     result = WordService.all(word)
-    if result == nil
-    end
   end
 end
 
