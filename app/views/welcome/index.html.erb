@@ -4,6 +4,4 @@
   <%= f.submit "Validate Word" %>
 <% end %>
 
-<% if @word[:id] != nil %>
-<% p "#{@word.valid_word} is a valid word and its root form is '#{word.all[:id]}'" %>
-<% end %>
+<%= "'#{@words[:id]}' is a valid word and its root form is '#{@words[:lexicalEntries][0][:inflectionOf][0][:text]}'." %>

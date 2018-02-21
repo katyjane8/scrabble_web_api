@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @word = Word.all
+    @words = WordService.all
   end
 end
