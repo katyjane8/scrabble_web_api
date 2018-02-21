@@ -12,8 +12,15 @@ class Play < ApplicationRecord
     }
   end
 
+  def score
+    score_word
+  end
+
   private
 
     def score_word
+      score = word.split('').map { |i| letter_scores[i.upcase] }
+      score.sum
     end
+
 end
