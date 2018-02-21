@@ -3,3 +3,7 @@
   <%= f.text_field :word %>
   <%= f.submit "Validate Word" %>
 <% end %>
+
+<% if @word[:id] != nil %>
+<% p "#{@word.valid_word} is a valid word and its root form is '#{word.all[:id]}'" %>
+<% end %>
