@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @words = WordService.all
+    @words = Word.validate_word(@word)
   end
 end

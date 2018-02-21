@@ -1,11 +1,11 @@
 class WordService
+  # 
+  # def initialze(word)
+  #   @word = word
+  # end
 
-  def initialze(word)
-    @word = word
-  end
-
-  def self.all
-   @conn = Faraday.new(:url => "https://od-api.oxforddictionaries.com/api/v1/inflections/en/foxes") do |faraday|
+  def self.all(word)
+   @conn = Faraday.new(:url => "https://od-api.oxforddictionaries.com/api/v1/inflections/en/#{word}") do |faraday|
       faraday.request  :url_encoded
       faraday.response :logger
       faraday.adapter  Faraday.default_adapter
