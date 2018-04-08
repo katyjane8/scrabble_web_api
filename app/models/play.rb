@@ -27,4 +27,5 @@ class Play < ApplicationRecord
       end
       sum
     end
+
 end
