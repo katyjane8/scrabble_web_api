@@ -12,8 +12,19 @@ class Play < ApplicationRecord
     }
   end
 
+  def score
+    score_word
+  end
+
   private
 
     def score_word
+      sum = 0
+      letter_scores.each do |letter, value|
+        word.chars.each do |x|
+          sum += value if x.upcase == letter
+        end
+      end
+      sum
     end
 end
