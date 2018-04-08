@@ -19,8 +19,13 @@ class Play < ApplicationRecord
   private
 
     def score_word
-      score = word.split('').map { |i| letter_scores[i.upcase] }
-      score.sum
+      sum = 0
+      letter_scores.each do |letter, value|
+        word.chars.each do |x|
+          sum += value if x.upcase == letter
+        end
+      end
+      sum
     end
 
 end

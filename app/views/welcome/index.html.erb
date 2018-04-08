@@ -1,8 +1,6 @@
-<%= form_for :play_word do |f| %>
-  <%= f.label :word %>
-  <%= f.text_field :word %>
-  <%= f.submit "Validate Word" %>
+<%= form_tag do %>
+  <%= text_field_tag :word %>
+  <%= submit_tag "Validate Word" %>
 <% end %>
 
-<%= "'#{@words[:id]}' is a valid word and its root form is '#{@words[:lexicalEntries][0][:inflectionOf][0][:text]}'." %>
-<%= "'#{@words}' is not a valid word." %>
+<%= @word %> is a valid word.
