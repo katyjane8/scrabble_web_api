@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'figaro'
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'pry'
 
 group :development, :test do
@@ -25,7 +26,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_bot_rails'
-  gem 'pry'
   gem 'capybara'
 end
 
