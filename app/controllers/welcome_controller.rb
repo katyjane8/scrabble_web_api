@@ -4,23 +4,13 @@ class WelcomeController < ApplicationController
 
   def create
     @word = params[:word]
+    validate = WordService.new(@word)
 
-    @conn = Faraday.new("https://od-api.oxforddictionaries.com/api/v1") do |f|
-      f.request :url_encoded
-      f.adapter Faraday.default_adapter
-      f.headers["Accept"] = "application/json"
-      f.headers['app_id'] = ENV['OXFORD_APP_ID']
-      f.headers['app_key'] = ENV['OXFORD_APP_KEY']
-    end
-
-    response = @conn.get("inflections/en/#{@word}")
-
-    if response.status == 404
+    if validate.status_code == 404
       render :invalid
-    else response.status != 404
-      body = JSON.parse(response.body, symbolize_names: true)
-      @root = body[:results].first[:lexicalEntries].first[:inflectionOf].first[:id]
-      render :index
+    else response.status == 200
+      @root = validate.root
+      render :valid
     end
   end
 

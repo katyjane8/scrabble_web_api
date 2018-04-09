@@ -24,6 +24,8 @@ private
     User.find(params[:user_id])
   end
 
-  def valid_word?
+  def valid_word?(word)
+    validate = WordService.new(word)
+    return true if validate.status_code == 200
   end
 end
